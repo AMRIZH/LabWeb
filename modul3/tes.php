@@ -14,11 +14,11 @@
     <p><input type="submit" value="kirim" name="submit"></p>
   </form>
   <?php
-    error _ reporting (E _ ALL ^ E _ NOTICE);
-    $nama = $ _ POST['nama'];
-    $email = $ _ POST['email'];
-    $komentar = $ _ POST['komentar'];
-    $submit = $ _ POST['submit'];
+    error_reporting(E_ALL ^ E_NOTICE);
+    $nama = $_POST['nama'];
+    $email = $_POST['email'];
+    $komentar = $_POST['komentar'];
+    $submit = $_POST['submit'];
     if($submit){
     echo"</br>Nama : $nama";
     echo"</br>Email : $email";
