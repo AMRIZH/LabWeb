@@ -4,8 +4,8 @@ USE informatika;
 
 CREATE TABLE mahasiswa (
     NIM varchar(10) NOT NULL,
-    Nama char(50),
-    Kelas char(5),
-    Alamat char(50),
+    Nama varchar(50),
+    Kelas varchar(5),
+    Alamat varcharchar(50),
     PRIMARY KEY (NIM)
 );
