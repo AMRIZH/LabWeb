@@ -1,0 +1,11 @@
+-- Create the database
+CREATE DATABASE informatika;
+USE informatika;
+
+CREATE TABLE mahasiswa (
+    NIM varchar(10) NOT NULL,
+    Nama char(50),
+    Kelas char(5),
+    Alamat char(50),
+    PRIMARY KEY (NIM)
+);
