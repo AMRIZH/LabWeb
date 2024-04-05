@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Data Barang</title>
+  <?php
+    $conn = mysqli_connect('localhost', 'root', '', 'warehouse');
+  ?>
 </head>
-<?php
-  $conn = mysqli_connect('localhost', 'root', '', 'warehouse');
-?>
 <body>
 
 <!-- form barang -->
@@ -80,7 +80,7 @@ while ($data = mysqli_fetch_row($hasil_cari)) {
   echo "<tr>
         <td width='20%'>$data[0]</td>
         <td width='30%'>$data[1]</td>
-        <td width='10%'>$data[2]</td>
+        <td width='30%'>$data[2]</td>
         <td width='20%' align='center'>
           <a href='?edit=$data[0]'>Edit</a>
           <a href='?delete=$data[0]'>Delete</a>
@@ -94,7 +94,6 @@ if (isset($_GET['delete'])) {
   // Delete related records from Barang table
   $delete_barang_query = "DELETE FROM barang WHERE kode_barang = '$kode_delete'";
   mysqli_query($conn, $delete_barang_query);
-
   header("Location: " . $_SERVER['PHP_SELF']);
   exit;
 }
@@ -110,17 +109,18 @@ if (isset($_GET['edit'])) {
 if (isset($_POST['submit_edit'])) {
   $kode_edit = $_POST['kode_edit'];
   $nama_edit = $_POST['nama_edit'];
-  $kode_gudang_edit = $_POST['gudang_edit'];
-
+  $nama_gudang_edit = $_POST['gudang_edit'];
+  $kode_gudang_edit_query = "SELECT kode_gudang FROM gudang WHERE nama_gudang = '$nama_gudang_edit'";
+  $kode_gudang_edit_result = mysqli_query($conn, $kode_gudang_edit_query);
+  $row_kode_gudang_edit = mysqli_fetch_assoc($kode_gudang_edit_result);
+  $kode_gudang_edit = $row_kode_gudang_edit['kode_gudang'];
+  
   $update_query = "UPDATE barang SET nama_barang = '$nama_edit', kode_gudang = '$kode_gudang_edit' WHERE kode_barang = '$kode_edit'";
   mysqli_query($conn, $update_query);
   header("Location: " . $_SERVER['PHP_SELF']);
   exit;
 }
-
 ?>
-
-<!-- edit database form -->
 <?php
 if (isset($_GET['edit'])) {
   echo '
@@ -143,9 +143,16 @@ if (isset($_GET['edit'])) {
         <td width="5%">:</td>
         <td width="65%">
           <select name="gudang_edit">
-            <option value="1" '. (($row_edit['kode_gudang'] == 1) ? 'selected' : '') .'>Gudang 1</option>
-            <option value="2" '. (($row_edit['kode_gudang'] == 2) ? 'selected' : '') .'>Gudang 2</option>
-            <!-- Add more options if needed -->
+          ';
+
+  $gudang_query = "SELECT * FROM gudang";
+  $gudang_result = mysqli_query($conn, $gudang_query);
+  while ($gudang_row = mysqli_fetch_array($gudang_result)) {
+    $selected = ($gudang_row['kode_gudang'] == $row_edit['kode_gudang']) ? 'selected' : '';
+    echo "<option value='" . $gudang_row['kode_gudang'] . "' $selected>" . $gudang_row['nama_gudang'] . "</option>";
+  }
+
+  echo '
           </select>
         </td>
       </tr>
@@ -155,6 +162,7 @@ if (isset($_GET['edit'])) {
   ';
 }
 ?>
+
 
 </table>
 </body>

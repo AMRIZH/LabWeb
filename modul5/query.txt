@@ -13,17 +13,13 @@ CREATE TABLE Gudang (
 CREATE TABLE Barang (
     kode_barang VARCHAR(10) PRIMARY KEY,
     nama_barang VARCHAR(50),
-    kode_gudang VARCHAR(10),
-    FOREIGN KEY (kode_gudang) REFERENCES Gudang(kode_gudang) ON DELETE CASCADE ON UPDATE CASCADE
+    kode_gudang VARCHAR(10) REFERENCES gudang(kode_gudang) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- Create the Masuk table
 CREATE TABLE Masuk (
-    kode_gudang VARCHAR(10),
-    kode_barang VARCHAR(10),
-    FOREIGN KEY (kode_gudang) REFERENCES Gudang(kode_gudang),
-    FOREIGN KEY (kode_barang) REFERENCES Barang(kode_barang),
-    PRIMARY KEY (kode_gudang, kode_barang)
+    kode_gudang VARCHAR(10) REFERENCES gudang(kode_gudang) ON DELETE CASCADE ON UPDATE CASCADE,
+    kode_barang VARCHAR(10) REFERENCES barang(kode_barang) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- Insert dummy data into Gudang table

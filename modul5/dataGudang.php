@@ -10,6 +10,7 @@
 ?>
 <body>
 <center>
+<!-- form data ghudang -->
 <h3>Data Gudang:</h3>
 <table border='0' width='30%'>
 <form method='POST' action='<?php echo $_SERVER['PHP_SELF']; ?>'>
@@ -37,7 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_add'])) {
   $lokasi = $_POST['lokasi'];
 
   $input = "INSERT INTO Gudang(kode_gudang, nama_gudang, lokasi) VALUES ('$kode_gudang', '$nama_gudang', '$lokasi')";
-
+  
+  // error handling
   if ($kode_gudang == '') {
     echo "</br>Kode Gudang tidak boleh kosong, diisi dulu";
   } elseif ($nama_gudang == '') {
@@ -51,6 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_add'])) {
 }
 ?>
 
+<!-- tampilkan data gudangb -->
 <hr>
 <H3>Daftar Gudang</H3>
 <table border='1' width='50%'>
@@ -64,8 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_add'])) {
 $cari = "SELECT * FROM Gudang ORDER BY kode_gudang";
 $hasil_cari = mysqli_query($conn, $cari);
 while ($data = mysqli_fetch_row($hasil_cari)) {
-  echo "
-  <tr>
+  echo "<tr>
   <td width='20%'>$data[0]</td>
   <td width='30%'>$data[1]</td>
   <td width='30%'>$data[2]</td>
@@ -75,7 +77,6 @@ while ($data = mysqli_fetch_row($hasil_cari)) {
   </td>
   </tr>";
 }
-
 // Delete data from database
 if (isset($_GET['delete'])) {
   $kode_delete = $_GET['delete'];
