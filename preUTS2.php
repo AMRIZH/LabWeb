@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <?php $conn = mysqli_connect('localhost','root','','perpustakaan'); ?>
-  <title>Document</title>
+  <title>Amri Zadi</title>
 </head>
 <body>
   <center>
@@ -145,12 +145,12 @@
 
     <br>
     <h3>Daftar Buku</h3>
-    <table border="1" widht="50%">
-      <th>
+    <table border="1" width="50%">
+      <tr>
         <td align="center" widht="20%"><b>Kode buku</b></td>
         <td align='center' width='20%'><b>Kode Jenis</b></td>
-        <td align='center' width='20%'><b>Nama Buku</b></td>
-      </th>
+        <td align='center' width='10%'><b>Nama Buku</b></td>
+      </tr>
       <?php
       $sql="SELECT * FROM buku";
       $result=mysqli_query($conn,$sql);
@@ -158,7 +158,7 @@
         echo "<tr>
         <td width='20%'>". $row['kode_buku'] ."</td>
         <td width='20%'>". $row['kode_jenis'] ."</td>
-        <td width='20%'>". $row['nama_buku'] ."</td>
+        <td width='10%'>". $row['nama_buku'] ."</td>
         </tr)";
       }
       ?>

@@ -1,0 +1,12 @@
+CREATE DATABASE perpustakaan;
+use perpustakaan;
+CREATE TABLE buku (
+kode_buku INTEGER AUTO_INCREMENT PRIMARY KEY,
+kode_jenis INTEGER REFERENCES jenis_buku(kode_jenis) ON DELETE CASCADE ON UPDATE CASCADE,
+nama_buku VARCHAR(20),
+keterangan_buku VARCHAR(30)
+);
+
+INSERT INTO buku (kode_jenis,nama_buku,keterangan_buku) VALUES
+(2,'rahasia ilahi','terjual');
+
