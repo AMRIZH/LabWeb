@@ -4,14 +4,14 @@ USE Warehouse;
 
 -- Create the Gudang table
 CREATE TABLE Gudang (
-    kode_gudang VARCHAR(10) PRIMARY KEY,
+    kode_gudang VARCHAR(5) PRIMARY KEY,
     nama_gudang VARCHAR(50),
-    lokasi VARCHAR(100)
+    lokasi VARCHAR(50)
 );
 
 -- Create the Barang table
 CREATE TABLE Barang (
-    kode_barang VARCHAR(10) PRIMARY KEY,
+    kode_barang VARCHAR(5) PRIMARY KEY,
     nama_barang VARCHAR(50),
     kode_gudang VARCHAR(10) REFERENCES gudang(kode_gudang) ON DELETE CASCADE ON UPDATE CASCADE
 );

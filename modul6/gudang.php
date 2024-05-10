@@ -94,6 +94,8 @@ if (isset($_GET['delete'])) {
   // Delete related records from Barang table
   $delete_barang_query = "DELETE FROM barang WHERE kode_barang = '$kode_delete'";
   mysqli_query($conn, $delete_barang_query);
+
+  // Redirect after the delete query is executed
   header("Location: " . $_SERVER['PHP_SELF']);
   exit;
 }
@@ -104,65 +106,61 @@ if (isset($_GET['edit'])) {
   $edit_query = "SELECT * FROM barang WHERE kode_barang = '$kode_edit'";
   $hasil_edit = mysqli_query($conn, $edit_query);
   $row_edit = mysqli_fetch_assoc($hasil_edit);
+
+  if ($row_edit) {
+    echo '
+    <h3>Edit Data Barang</h3>
+    <form method="POST" action="' . $_SERVER['PHP_SELF'] . '">
+      <input type="hidden" name="kode_edit" value="' . $row_edit['kode_barang'] . '">
+      <table border="0" width="30%">
+         <tr>
+          <td width="25%">Kode barang</td>
+          <td width="5%">:</td>
+          <td width="65%">' . $row_edit['kode_barang'] . '</td>
+        </tr>
+        <tr>
+          <td width="25%">Nama Barang</td>
+          <td width="5%">:</td>
+          <td width="65%"><input type="text" name="nama_edit" value="' . $row_edit['nama_barang'] . '" size="30" maxlength="50"></td>
+        </tr>
+        <tr>
+          <td width="25%">Gudang</td>
+          <td width="5%">:</td>
+          <td width="65%">
+            <select name="gudang_edit">
+            ';
+
+        $gudang_query = "SELECT * FROM gudang";
+        $gudang_result = mysqli_query($conn, $gudang_query);
+        while ($gudang_row = mysqli_fetch_array($gudang_result)) {
+          $selected = ($gudang_row['kode_gudang'] == $row_edit['kode_gudang']) ? 'selected' : '';
+          echo "<option value='" . $gudang_row['kode_gudang'] . "' $selected>" . $gudang_row['nama_gudang'] . "</option>";
+        }
+
+    echo '
+            </select>
+          </td>
+        </tr>
+      </table>
+      <input type="submit" name="submit_edit" value="Update">
+    </form>
+    ';
+  }
 }
 
 if (isset($_POST['submit_edit'])) {
   $kode_edit = $_POST['kode_edit'];
   $nama_edit = $_POST['nama_edit'];
-  $nama_gudang_edit = $_POST['gudang_edit'];
-  $kode_gudang_edit_query = "SELECT kode_gudang FROM gudang WHERE nama_gudang = '$nama_gudang_edit'";
-  $kode_gudang_edit_result = mysqli_query($conn, $kode_gudang_edit_query);
-  $row_kode_gudang_edit = mysqli_fetch_assoc($kode_gudang_edit_result);
-  $kode_gudang_edit = $row_kode_gudang_edit['kode_gudang'];
+  $kode_gudang_edit = $_POST['kode_gudang_edit'];
   
   $update_query = "UPDATE barang SET nama_barang = '$nama_edit', kode_gudang = '$kode_gudang_edit' WHERE kode_barang = '$kode_edit'";
   mysqli_query($conn, $update_query);
+
+  // Redirect after the update query is executed
   header("Location: " . $_SERVER['PHP_SELF']);
   exit;
 }
 ?>
-<?php
-if (isset($_GET['edit'])) {
-  echo '
-  <h3>Edit Data Barang</h3>
-  <form method="POST" action="' . $_SERVER['PHP_SELF'] . '">
-    <input type="hidden" name="kode_edit" value="' . $row_edit['kode_barang'] . '">
-    <table border="0" width="30%">
-      <tr>
-        <td width="25%">Kode barang</td>
-        <td width="5%">:</td>
-        <td width="65%">' . $row_edit['kode_barang'] . '</td>
-      </tr>
-      <tr>
-        <td width="25%">Nama Barang</td>
-        <td width="5%">:</td>
-        <td width="65%"><input type="text" name="nama_edit" value="' . $row_edit['nama_barang'] . '" size="30" maxlength="50"></td>
-      </tr>
-      <tr>
-        <td width="25%">Gudang</td>
-        <td width="5%">:</td>
-        <td width="65%">
-          <select name="gudang_edit">
-          ';
-
-  $gudang_query = "SELECT * FROM gudang";
-  $gudang_result = mysqli_query($conn, $gudang_query);
-  while ($gudang_row = mysqli_fetch_array($gudang_result)) {
-    $selected = ($gudang_row['kode_gudang'] == $row_edit['kode_gudang']) ? 'selected' : '';
-    echo "<option value='" . $gudang_row['kode_gudang'] . "' $selected>" . $gudang_row['nama_gudang'] . "</option>";
-  }
-
-  echo '
-          </select>
-        </td>
-      </tr>
-    </table>
-    <input type="submit" name="submit_edit" value="Update">
-  </form>
-  ';
-}
-?>
-
 
 </table>
 </body>
