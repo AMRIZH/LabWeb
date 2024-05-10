@@ -61,27 +61,108 @@
     ?>
     <!-- table buku -->
     <br>
-    <h3>Daftar Buku</h3>
+    <h3>Daftar Jenis Buku</h3>
+    <table border="1" width="50%">
+      <tr>
+        <th width="30%" align="center"><b>Kode Buku</b></th>
+        <td width="30%" align="center"><b>Nama jenis</b></td>
+        <td width="30%" align="center"><b>keterangan jenis</b></td>
+      </tr>
+      <?php
+      $sql= "SELECT * FROM buku";
+      $result= mysqli_query($conn,$sql);
+      while($row = mysqli_fetch_assoc($result)){
+        echo "<tr>
+        <td width='30%'>" . $row['kode_buku'] . "</td>
+        <td width='30%'>" . $row['nama_jenis'] . "</td>
+        <td width='30%'>" . $row['ket_jenis'] . "</td>
+        </tr>";
+      }
+      ?>
+    </table>
+    <br>
+    <h3>Buku</h3>
     <form action="" method="POST">
-      <table border="1" width="50%">
+      <table border="0">
         <tr>
-          <th width="30%" align="center"><b>Kode Buku</b></th>
-          <td width="30%" align="center"><b>Kode jenis</b></td>
-          <td width="30%" align="center"><b>Nama buku</b></td>
+          <td width="25%">Kode Buku</td>
+          <td width="5%">:</td>
+          <td width="65%"><input type="text name=kode_buku" size="10"></td>
         </tr>
-        <?php
-        $sql= "SELECT * FROM buku";
-        $result= mysqli_query($conn,$sql);
-        while($row = mysqli_fetch_assoc($result)){
-          echo "<tr>
-          <td width='30%'>" . $row['kode_buku'] . "</td>
-          <td width='30%'>" . $row['jenis_buku'] . "</td>
-          <td width='30%'>" . $row['nama_buku'] . "</td>
-          </tr>";
-        }
-        ?>
+        <tr>
+        <td width="25%">Kode Jenis</td>
+          <td width="5%">:</td>
+          <td width="65%">
+            <select name="kode_jenis">
+              <?php
+              $sql= "SELECT kode_jenis FROM jenis_buku";
+              $result= mysqli_query($conn,$sql);
+              while($row=mysqli_fetch_assoc($result)){
+                echo "<option value ='" . $row['kode_jenis'] . "'>" . $row['kode_jenis'] . "</option>";
+              }
+              ?>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td width="25%">Nama Buku</td>
+          <td width="5%">:</td>
+          <td width="65%"><input type="text" name="nama_buku"></td>
+        </tr>
       </table>
+      <input type="submit" value="insert" name="insert_buku">
+      <input type="submit" value="update" name="update_buku">
+      <input type="submit" value="delete" name="delete_buku">
     </form>
+
+    <?php
+    if(isset($_POST['insert_buku'])){
+      $kode_buku= $_POST['kode_buku'];
+      $kode_jenis=$_POST['kode_jenis'];
+      $nama_buku=$_POST['nama_buku'];
+
+      $sql= "INSERT INTO buku (kode_buku,kode_jenis,nama_buku) VALUES ('$kode_buku','$kode_jenis','$nama_buku')";
+      mysqli_query($conn,$sql);
+    }
+
+    if(isset($_POST['update_buku'])){
+      $kode_buku= $_POST['kode_buku'];
+      $kode_jenis=$_POST['kode_jenis'];
+      $nama_buku=$_POST['nama_buku'];
+
+
+      $sql = "UPDATE buku SET kode_jenis='$kode_jenis', nama_buku='$nama_buku' WHERE kode_buku='$kode_buku'";
+      mysqli_query($conn,$sql);
+    }
+
+    if(isset($_POST['delete_buku'])){
+      $kode_buku=$_POST['$kode_buku'];
+
+      $sql="DELETE FROM buku WHERE kode_buku='$kode_buku'";
+      mysqli_query($conn,$sql);
+    }
+    ?>
+
+    <br>
+    <h3>Daftar Buku</h3>
+    <table border="1" widht="50%">
+      <th>
+        <td align="center" widht="20%"><b>Kode buku</b></td>
+        <td align='center' width='20%'><b>Kode Jenis</b></td>
+        <td align='center' width='20%'><b>Nama Buku</b></td>
+      </th>
+      <?php
+      $sql="SELECT * FROM buku";
+      $result=mysqli_query($conn,$sql);
+      while ($row=mysqli_fetch_assoc($result)){
+        echo "<tr>
+        <td width='20%'>". $row['kode_buku'] ."</td>
+        <td width='20%'>". $row['kode_jenis'] ."</td>
+        <td width='20%'>". $row['nama_buku'] ."</td>
+        </tr)";
+      }
+      ?>
+    </table>
   </center>
 </body>
 </html>
