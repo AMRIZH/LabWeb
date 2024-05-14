@@ -66,8 +66,8 @@ if(isset($_POST['delete_jenis'])){
   while($row=mysqli_fetch_assoc($result)){
     echo "<tr>
     <td width='35%'>".$row['$kode_jenis']."</td>
-    <td width='35%'>".$row['$kode_jenis']."</td>
-    <td width='30%'>".$row['$kode_jenis']."</td>
+    <td width='35%'>".$row['$nama_jenis']."</td>
+    <td width='30%'>".$row['$keterangan']."</td>
     </tr>";
   }
   ?>
@@ -132,7 +132,26 @@ if(isset($_POST['delete_jenis'])){
 ?>
 
 <hr>
-<h3></h3>
+<h3>Tabel buku</h3>
+<table width="60%" border="0">
+  <tr>
+    <td width="35%">Kode Buku</td>
+    <td width="35%">Kode jenis</td>
+    <td width="30%">Nama Buku</td>
+  </tr>
+  
+  <?php
+  $sql="SELECT * FROM buku";
+  $result=mysqli_query($conn,$sql);
+  while($row=mysqli_fetch_assoc($result)){
+    echo "<tr>
+    <td width='35%'>".$kode_buku."</td>
+    <td width='35%'>".$kode_jenis."</td>
+    <td width='30%'>".$nama_buku."</td>
+    </tr>";
+  }
+  ?>
+</table>
 </center>
 </body>
 </html>
