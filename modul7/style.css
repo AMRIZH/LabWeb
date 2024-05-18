@@ -1,0 +1,17 @@
+body {
+  background: blue;
+}
+
+h2 {
+  font-family: "Comic Sans MS";
+  background-color: red;
+  text-align: center;
+}
+table {
+  border: 4px double yellow;
+  background: grey;
+}
+
+.td {
+  font-weight: bold;
+}

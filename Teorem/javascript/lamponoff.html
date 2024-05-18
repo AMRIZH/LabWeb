@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- on off lamp with button -->
+<head>
+  <style>
+    .lampu {
+      width: 100px;
+      height: 100px;
+      background-color: gray;
+      border-radius: 50%;
+      margin: 0 auto;
+      margin-top: 100px;
+    }
+    .on {
+      background-color: #f1c40f;
+    }
+    /* .off {
+      background-color: gray;
+    } */
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="lampu"></div>
+  <button onclick="onOff()">On/Off</button>
+  <script>
+    function onOff() {
+      var lampu = document.querySelector('.lampu');
+      if (lampu.classList.contains('on')) {
+        lampu.classList.remove('on');
+        // lampu.classList.add('off');
+      } else {
+        // lampu.classList.remove('off');
+        lampu.classList.add('on');
+      }
+    }
+  </script>
+</body>
+</html>

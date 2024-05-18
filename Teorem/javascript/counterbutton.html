@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- counter with button -->
+<head>
+  <style>
+    .counter{
+      font-size: 24px;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    var clicks = 0;
+    function handleClick() {
+      clicks += 1;
+      document.getElementById("clicks").innerHTML = clicks;
+    };
+  </script>
+  <button type="button" onClick="handleClick()">Click me</button>
+  <p>Clicks: <span id="clicks">0</span></p>
+</body>
+</html>
