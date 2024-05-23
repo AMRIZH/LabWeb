@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Decision Making Application</title>
+    <script>
+        function calculateGrade() {
+            // Get the input value
+            var value = parseInt(document.getElementById("inputValue").value);
+
+            // Determine the grade based on the value
+            var grade;
+            if (value >= 0 && value <= 20) {
+                grade = "E";
+            } else if (value >= 21 && value <= 40) {
+                grade = "D";
+            } else if (value >= 41 && value <= 60) {
+                grade = "C";
+            } else if (value >= 61 && value <= 80) {
+                grade = "B";
+            } else if (value >= 81 && value <= 100) {
+                grade = "A";
+            } else {
+                grade = "Invalid Value";
+            }
+
+            // Display the result
+            document.getElementById("result").innerText = "Grade: " + grade;
+        }
+    </script>
+</head>
+<body>
+    <h2>Decision Making Application</h2>
+    <label for="inputValue">Enter Value (0-100):</label>
+    <input type="text" id="inputValue" name="inputValue">
+    <button onclick="calculateGrade()">Calculate</button>
+    <div id="result"></div>
+</body>
+</html>
