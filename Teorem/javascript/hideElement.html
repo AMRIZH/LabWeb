@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .text {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="toggleText()">Show/Hide Text</button>
+    <p class="text">This is a text element</p>
+    <script>
+        function toggleText() {
+            var text = document.querySelector('.text');
+            if (text.style.display === 'none') {
+                text.style.display = 'block';
+            } else {
+                text.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
