@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-echo "You have successfully logged in as " . $_SESSION['username'] . " and you are registered as " . $_SESSION['status'];
+echo "You have successfully logged in as " . $_SESSION['username'] . " and you are registered as " . $_SESSION['Status'];
 ?>
 
 <br>
