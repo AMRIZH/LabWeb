@@ -1,12 +1,12 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['username'])) {
+if (!isset($_SESSION['Username'])) {
     header("Location: index.php");
     exit;
 }
 
-$status = $_SESSION['status'];
+$Status = $_SESSION['Status'];
 ?>
 
 <!DOCTYPE html>
@@ -16,13 +16,13 @@ $status = $_SESSION['status'];
     <title>Profile</title>
 </head>
 <body>
-    <h2>Welcome, <?php echo $_SESSION['username']; ?>!</h2>
-    <p>Your status: <?php echo $status; ?></p>
+    <h2>Welcome, <?php echo $_SESSION['Username']; ?>!</h2>
+    <p>Your Status: <?php echo $Status; ?></p>
 
-    <?php if ($status === 'Administrator'): ?>
+    <?php if ($Status === 'Administrator'): ?>
         <p>This is the Administrator view.</p>
         <!-- Add Administrator-specific content here -->
-    <?php elseif ($status === 'Member'): ?>
+    <?php elseif ($Status === 'Member'): ?>
         <p>This is the Member view.</p>
         <!-- Add Member-specific content here -->
     <?php endif; ?>
