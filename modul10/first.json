@@ -4,14 +4,9 @@
   "prodi": "Informatics",
   "age": 20,
   "pass": false,
-  "subject": [
-      "Website Programming",
-      "Programming Algorithms",
-      "Select Capita",
-      1
-  ],
+  "subject": ["Website Programming", "Programming Algorithms", "Select Capita"],
   "mark": {
-      "Linear Algebra": "AB",
-      "Logika Matematika": "A"
+    "Linear Algebra": "AB",
+    "Logika Matematika": "A"
   }
 }

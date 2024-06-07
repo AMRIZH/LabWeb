@@ -1,104 +1,100 @@
 {
-  "mySchedule": [
-    {
+  "full name": "Muhammad Amri Zadi Hudaya",
+  "address": "Jln Pangeran Diponegoro",
+  "prodi": "Informatics",
+  "age": 20,
+  "NIM": "L200224288",
+  "pass": true,
+  "mySchedule": {
+    "Praktikum Jaringan Komputer": {
       "No": 1,
       "hari": "senin",
       "Jam": "3-4",
       "Ruang": "LSITIF",
       "kode matkul": "TIF3221133",
-      "Mata kuliah": "Praktikum Jaringan Komputer",
       "Kelas": "X",
       "Dosen Pengampu": "Ihsan Cahyo Utomo, M.Kom"
     },
-    {
+    "Pemrograman WEB": {
       "No": 2,
       "hari": "senin",
       "Jam": "7-9",
       "Ruang": "SW706",
       "kode matkul": "TIF3221330",
-      "Mata kuliah": "Pemrograman WEB",
       "Kelas": "X",
       "Dosen Pengampu": "Gunawan Ariyanto, ST. M.Comp Sc., Ph.D"
     },
-    {
+    "Jaringan Komputer": {
       "No": 3,
       "hari": "selasa",
       "Jam": "7-9",
       "Ruang": "J.Int.1",
       "kode matkul": "TIF3221332",
-      "Mata kuliah": "Jaringan Komputer",
       "Kelas": "X",
       "Dosen Pengampu": "Yudi Wahyu Wibowo, ST, M.Eng"
     },
-    {
+    "Rekayasa Perangkat Lunak": {
       "No": 4,
       "hari": "selasa",
       "Jam": "10-12",
       "Ruang": "SW706",
       "kode matkul": "TIF3221334",
-      "Mata kuliah": "Rekayasa Perangkat Lunak",
       "Kelas": "X",
       "Dosen Pengampu": "Yusuf Sulistyo Nugroho, Dr. Eng."
     },
-    {
+    "Organisasi dan Arsitektur Komputer": {
       "No": 5,
       "hari": "rabu",
       "Jam": "3-4",
       "Ruang": "SW706",
       "kode matkul": "TIF3221235",
-      "Mata kuliah": "Organisasi dan Arsitektur Komputer",
       "Kelas": "X",
       "Dosen Pengampu": "Helmi Imaduddin, S.Kom., M.Eng."
     },
-    {
+    "Praktikum Algoritma dan Struktur Data": {
       "No": 6,
       "hari": "rabu",
       "Jam": "5-6",
       "Ruang": "LABRPL",
       "kode matkul": "TIF3221129",
-      "Mata kuliah": "Praktikum Algoritma dan Struktur Data",
       "Kelas": "X",
       "Dosen Pengampu": "Endang Wahyu Pamungkas, SKom, MKom."
     },
-    {
+    "Algoritma dan Struktur Data": {
       "No": 7,
       "hari": "rabu",
       "Jam": "7-9",
       "Ruang": "SW706",
       "kode matkul": "TIF3221328",
-      "Mata kuliah": "Algoritma dan Struktur Data",
       "Kelas": "X",
       "Dosen Pengampu": "Endang Wahyu Pamungkas, SKom, MKom."
     },
-    {
+    "Sistem Multimedia": {
       "No": 8,
       "hari": "kamis",
       "Jam": "10-12",
       "Ruang": "J.Int.1",
       "kode matkul": "TIF3221353",
-      "Mata kuliah": "Sistem Multimedia",
       "Kelas": "X",
       "Dosen Pengampu": "Khanun Roisatul Ummah, S.Tr.T., M.Tr.Kom."
     },
-    {
+    "Praktikum Pemrograman WEB": {
       "No": 9,
       "hari": "jumat",
       "Jam": "7-8",
       "Ruang": "LABRPL",
       "kode matkul": "TIF3221131",
-      "Mata kuliah": "Praktikum Pemrograman WEB",
       "Kelas": "X",
       "Dosen Pengampu": "Gunawan Ariyanto, ST. M.Comp Sc., Ph.D"
     },
-    {
+    "Kemuhammadiyahan": {
       "No": 10,
-      "hari": "senin",
+      "hari": "senini",
       "Jam": "1-2",
       "Ruang": "J.Int.1",
       "kode matkul": "TIF1221227",
-      "Mata kuliah": "Kemuhammadiyahan",
       "Kelas": "X",
       "Dosen Pengampu": "Endang Fauziati, Prof. Dr. M.Hum"
     }
-  ]
+  }
 }
