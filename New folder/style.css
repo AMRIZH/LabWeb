@@ -1,0 +1,50 @@
+/* Custom Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .bg-gradient-to-r {
+    background-image: linear-gradient(to right, #4338ca, #6d28d9, #eb438f);
+    animation: bgGradient 10s ease infinite;
+  }
+  
+  @keyframes bgGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .swiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .swiper-pagination-bullet {
+    background-color: #4338ca;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background-color: #6d28d9;
+  }
