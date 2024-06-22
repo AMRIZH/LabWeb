@@ -1,0 +1,147 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAMCAYAAABbayygAAAACXBIWXMAAAsSAAALEgHS3X78AAAAIGNIUk0AAG2YAABtkAAGdgAAbZgAAG2YAAHYUAAoYtFEcKJkQAAACWSURBVHjaYvz//z8DJQAggJiAJP///5WqBqFk/7x48bEM7cDZnAwMDAABiNQCmQKAmQbA4s/Pnz9/Sz/V0GFgYHi9PtD+5cvHQIMs0lkCwgaEGNGwKkAAJhMgNhDjAyYNFgDTBZkAgxpEZFADZlAtZgYoo2ZgMAZhdB2oeGCDAAAAAElFTkSuQmCC")
+      4 4,
+    auto;
+}
+
+h1,
+h3 {
+  text-align: center;
+  margin-top: 20px;
+}
+
+h1 {
+  font-size: 3em;
+  animation: textGlow 1.5s infinite;
+}
+
+h3 {
+  font-size: 2em;
+  animation: textGlow 1.5s infinite;
+  animation-delay: 0.5s;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.animated-button {
+  margin: 10px;
+  padding: 15px 25px;
+  font-size: 16px;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.animated-button:hover {
+  background: #fff;
+  color: #000;
+  transform: scale(1.1);
+}
+
+@keyframes textGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #f0f, 0 0 40px #f0f,
+      0 0 50px #f0f, 0 0 60px #f0f, 0 0 70px #f0f;
+  }
+  50% {
+    text-shadow: 0 0 20px #fff, 0 0 30px #ff00ff, 0 0 40px #ff00ff,
+      0 0 50px #ff00ff, 0 0 60px #ff00ff, 0 0 70px #ff00ff, 0 0 80px #ff00ff;
+  }
+}
+
+.firework-container {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  margin-top: 12px;
+}
+
+@keyframes fireworks {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+.firework {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: white;
+  animation: fireworks 1s linear infinite;
+}
+
+.firework:nth-child(odd) {
+  animation-delay: 0.5s;
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+
+@keyframes spark {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+
+.firework::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  margin-left: -25px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  animation: spark 0.5s linear infinite;
+  animation-delay: 0.5s;
+}
+
+.firework:nth-child(2n)::after {
+  animation-delay: 1s;
+}
+
+.firework:nth-child(3n)::after {
+  animation-delay: 1.5s;
+}
+
+.firework:nth-child(4n)::after {
+  animation-delay: 2s;
+}
